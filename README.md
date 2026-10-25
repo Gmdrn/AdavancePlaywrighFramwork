@@ -50,6 +50,31 @@ npm run lint
 
 Both commands must pass. `npm run format:check` is optional but recommended. See [rules/test-quality-checks.md](rules/test-quality-checks.md) for the full rule.
 
+## Test Steps and Logging
+
+Use `test.step()` to break a test into logical stages and make the report easier to read. Combine it with the shared logger to capture meaningful progress messages for each step.
+
+```ts
+import {expect, test} from '@playwright/test';
+import {createLogger} from '../utils/logger';
+
+const log = createLogger('LoginSpec');
+
+test('login flow', async ({page}) => {
+  await test.step('Login with valid credentials', async () => {
+    log.info('Attempting login with valid credentials');
+    await page.goto('/login');
+  });
+
+  await test.step('Verify login success', async () => {
+    log.info('Checking the logged-in state');
+    await expect(page.locator('[data-test="login-button"]')).toBeHidden();
+  });
+});
+```
+
+This keeps the Playwright output structured and gives clearer console and log-file traces.
+
 ## Reports
 
 The configured HTML report is written to `playwright-report/`. The JSON report is written to `test-results/results.json`.

@@ -13,7 +13,7 @@ export default defineConfig({
     workers: process.env.CI ? 2 : 3,
 
     reporter: [
-        ['./src/utils/CustomTTAReporter.ts'],
+        ['./src/utils/Custom_Reporter.ts'],
         ['html', { open: 'never' }],
         ['json', { outputFile: 'test-results/results.json' }],
         ['list'],

@@ -2,22 +2,21 @@
     "compilerOptions": {
         "target": "ES2020",
         "lib": ["ES2020", "DOM"],
-        "module": "commonjs",
-        "moduleResolution": "node",
+        "module": "preserve",
+        "moduleResolution": "bundler",
         "strict": true,
         "esModuleInterop": true,
         "skipLibCheck": true,
         "resolveJsonModule": true,
         "outDir": "./dist",
-        "baseUrl": ".",
         "paths": {
-            "@pages/*": ["src/pages/*"],
-            "@modules/*": ["src/modules/*"],
-            "@utils/*": ["src/utils/*"],
-            "@fixtures/*": ["src/fixtures/*"],
-            "@api/*": ["src/api/*"],
-            "@config/*": ["src/config/*"],
-            "@testdata/*": ["src/testdata/*"]
+            "@pages/*": ["./src/pages/*"],
+            "@modules/*": ["./src/modules/*"],
+            "@utils/*": ["./src/utils/*"],
+            "@fixtures/*": ["./src/fixtures/*"],
+            "@api/*": ["./src/api/*"],
+            "@config/*": ["./src/config/*"],
+            "@testdata/*": ["./src/testdata/*"]
         }
     },
     "include": ["**/*.ts"],
