@@ -75,6 +75,23 @@ test('login flow', async ({page}) => {
 
 This keeps the Playwright output structured and gives clearer console and log-file traces.
 
+## Page Object Models
+
+Page classes in `src/pages/` encapsulate page locators and user actions. For example, `CartPage` provides methods to open and validate the cart, list item names, remove an item, continue shopping, and proceed to checkout.
+
+```ts
+import {CartPage} from '../pages/CartPage';
+
+const cartPage = new CartPage(page);
+await cartPage.open();
+
+const itemNames = await cartPage.itemNamesList();
+await cartPage.remove('tta-practice-backpack');
+await cartPage.checkout();
+```
+
+Use these page methods from tests rather than duplicating selectors and interactions in each test.
+
 ## Reports
 
 The configured HTML report is written to `playwright-report/`. The JSON report is written to `test-results/results.json`.
