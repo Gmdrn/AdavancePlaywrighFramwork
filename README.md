@@ -1,4 +1,5 @@
-# E_Commerce_Project_
+# advanced-playwright-framework
+# e-commerce-project
 
 Playwright and TypeScript test automation framework for web applications. The configured browser projects cover Chromium, Firefox, WebKit, and mobile Chrome.
 
